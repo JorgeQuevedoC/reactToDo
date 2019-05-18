@@ -7,13 +7,21 @@ import AuthContext from './auth-context';
 class App extends Component {
   state = {
     currentPage: 'main',
-    authStatus: false,
+    providerValue:{
+      status:false,
+      login:this.login,
+      logout:this.logout
+    }
   };
 
   componentDidMount() {
     this.setState({
       currentPage: 'main',
-      authStatus: false,
+      providerValue: {
+        login:this.login,
+        logout:this.logout,
+        status:false,
+      },
     });
   }
 
@@ -26,14 +34,20 @@ class App extends Component {
   login = () => {
     this.setState({
       currentPage: 'todo',
-      authStatus: true,
+      providerValue:{ 
+        ...this.state.providerValue,
+        status:true
+      }
     });
   };
 
   logout = () => {
     this.setState({
       currentPage: 'auth',
-      authStatus: false,
+      providerValue: {
+        ...this.state.providerValue,
+        status:false
+      },
     });
   };
 
@@ -47,11 +61,7 @@ class App extends Component {
     return (
       <>
         <AuthContext.Provider
-          value={{
-            status: this.state.authStatus,
-            login: this.login,
-            logout: this.logout,
-          }}
+          value={this.state.providerValue}
         >
           <Header
             onLoadTodos={this.onTodoHandler}

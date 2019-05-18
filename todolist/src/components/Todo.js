@@ -69,7 +69,7 @@ class Todo extends Component {
         <TodoContainer>
           <TodoInput
             type="text"
-            placeholder="Todo"
+            placeholder="To Do"
             onChange={this.inputChangeHandler}
             value={this.state.todoName}
           />

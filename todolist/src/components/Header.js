@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { HeaderContainer, HeaderButton } from './styled';
+import authContext from "../auth-context";
 
 class Header extends Component {
   render() {
@@ -16,5 +17,5 @@ class Header extends Component {
     );
   }
 }
-
+Header.contextType = authContext;
 export default Header;
