@@ -44,6 +44,7 @@ class Todo extends Component {
         const todoItem = { id: res.data.name, name: this.state.todoName };
         this.setState({
           todoList: [...this.state.todoList, todoItem],
+          todoName:'',
         });
       })
       .catch(err => console.log(err));
