@@ -24,7 +24,7 @@ class Todo extends Component {
           arr = [...arr, { id: key, name: todoData[key].name }];
           return arr;
         }, []);
-        this.setState({ todoList: todos });
+        this.setState({ todoName:"",todoList: todos });
       })
       .catch(err => console.log(err));
   }
@@ -70,7 +70,7 @@ class Todo extends Component {
           <TodoInput
             type="text"
             placeholder="To Do"
-            onChange={this.inputChangeHandler}
+            onChange={(event)=>this.inputChangeHandler(event)}
             value={this.state.todoName}
           />
           <TodoButton type="button" onClick={this.todoAddHandler}>
