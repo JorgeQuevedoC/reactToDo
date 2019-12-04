@@ -1,19 +1,16 @@
-import React, { Component } from 'react';
-import { HeaderContainer, HeaderButton } from './styled';
+import React, { Component } from "react";
 import authContext from "../auth-context";
 
 class Header extends Component {
   render() {
     let context = this.context;
     return (
-      <HeaderContainer>
+      <header>
         {context.status ? (
-          <HeaderButton onClick={this.props.onLoadTodos}>
-            Todo List
-          </HeaderButton>
+          <button onClick={this.props.onLoadTodos}>Todo List</button>
         ) : null}
-        <HeaderButton onClick={this.props.onLoadAuth}>Auth</HeaderButton>
-      </HeaderContainer>
+        <button onClick={this.props.onLoadAuth}>Auth</button>
+      </header>
     );
   }
 }
